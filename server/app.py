@@ -3,7 +3,7 @@ from flask_migrate import Migrate
 from flask_cors import CORS
 from models import db, Message
 
-app = Flask(__name__)  # Fix: use __name__ instead of name
+app = Flask(__name__)  
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -49,5 +49,5 @@ def delete_message(id):
     db.session.commit()
     return '', 204
 
-if __name__ == '__main__':  # Fix: use __name__ instead of name
+if __name__ == '__main__':  
     app.run(port=5555, debug=True)  
