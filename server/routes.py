@@ -26,9 +26,8 @@ def update_message(id):
     if not message:
         return jsonify({'error': 'Message not found'}), 404
     data = request.get_json()
-    body = data.get('body')
-    if body is not None:
-        message.body = body
+    if 'body' in data:
+        message.body = data['body']
         db.session.commit()
     return jsonify(message.to_dict()), 200
 
